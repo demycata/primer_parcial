@@ -26,12 +26,12 @@ def cargar_datos_secuencial(nombres: list, generos: list, legajos: list, materia
 
         for j in range(len(notas[i])):
             print(materias[j])
-            nota = get_int('Nota: ', mensaje_error, 1, 10, 100)
+            nota = get_int('Nota ➢  ', mensaje_error, 1, 10, 100)
             notas[i][j] = nota
 
         print('Datos Ingresados CORRECTAMENTE')
         print('❅────────────────✧❅✦❅✧──────────────────❅•')
-        seguir = input("Desea cargar otro estudiante?('s'/'n'): ")
+        seguir = input("Desea cargar otro estudiante?('s'/'n') ➢  ")
         seguir = lower(seguir)
         if seguir == 'n':
             break
@@ -165,7 +165,7 @@ def buscador(legajo:list)-> int | None:
         Devuelve el indice del legajo encontrado.
     '''
     indice = None
-    referencia = get_int('Legajo:', mensaje_error, 10000, 99999, 100 )
+    referencia = get_int('Legajo ➢  ', mensaje_error, 10000, 99999, 100 )
     for i in range(len(legajo)):
         if legajo[i] == referencia:
             indice = i

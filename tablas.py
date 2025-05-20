@@ -60,7 +60,7 @@ def show_promedio_materia(materias:list, promedios_materias:list, mayor:int) -> 
     for i in range(len(promedios_materias)):
         if promedios_materias[i] == mayor:
             print(f"Materia_{i + 1}: {promedios_materias[i]}")
-            print(f"{materias[i]}: {promedios_materias[i]}")
+            #print(f"{materias[i]}: {promedios_materias[i]}")
     
 def show_promedios_materias(materias:list, promedio_materias:list, tamano: int) -> None:
     '''

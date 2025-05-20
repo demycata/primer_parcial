@@ -499,7 +499,7 @@ def get_name()-> str:
     Devuelve el nombre ingresado por el usuario.
     '''
     while True:
-        nombre = input("Nombre: ")
+        nombre = input("Nombre ➢  ")
         es_valido = indentificar_numeros(nombre)
         if es_valido == True:
                 print('ERROR | Ingrese un Nombre valido.')
@@ -513,7 +513,7 @@ def get_genero()-> str:
     Devuelve 'M' para masculino, 'F' para femenino o 'X' para no binario.
     '''
     while True:
-        genero = input("Genero: ")
+        genero = input("Genero ('M'/'F'/'X') ➢  ")
         genero = upper(genero)
         if genero == 'M' or genero == 'F' or genero == 'X':
             break
@@ -530,7 +530,7 @@ def get_legajo(legajos:list)-> int:
         int: Legajo único ingresado por el usuario.
     '''
     while True:
-        legajo = get_int('Legajo: ', 'ERROR AL INGRESAR TU DATO', 10000, 99999, 100)
+        legajo = get_int('Legajo ➢  ', 'ERROR AL INGRESAR TU DATO', 10000, 99999, 100)
         es_valido = validar_legajo(legajo, legajos)
         if es_valido == True:
             break
