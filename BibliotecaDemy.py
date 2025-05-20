@@ -1,6 +1,13 @@
 import random
 
 def mostrar_datos(lista_a:list, lista_b:list, lista_c:list) -> None:
+    '''
+    Función para mostrar los datos de tres listas en formato tabular.
+    Args:
+        lista_a: list: Primera lista de datos.
+        lista_b: list: Segunda lista de datos.
+        lista_c: list: Tercera lista de datos.
+    '''
 
     for i in range(len(lista_a)):
 
@@ -10,6 +17,14 @@ def mostrar_datos(lista_a:list, lista_b:list, lista_c:list) -> None:
             print(f"{lista_a[i]}\t{lista_b[i]}\t{lista_c[i]}")    
 
 def copiar_lista(lista_a:list, lista_b:list)->list:
+    '''
+    Función para copiar los elementos de dos listas en nuevas listas.
+    Args:
+        lista_a: list: Primera lista de datos.
+        lista_b: list: Segunda lista de datos.
+    Returns:
+        tuple: Dos listas nuevas con los elementos de lista_a y lista_b.
+    '''
     nombres_originales = [-1] * len(lista_a)
     edades_originales = [-1] * len(lista_b)
 
@@ -20,6 +35,13 @@ def copiar_lista(lista_a:list, lista_b:list)->list:
     return nombres_originales, edades_originales
 
 def ordenar_ascendente(lista_a:list, lista_b:list, lista_c:list) -> None:
+    '''
+    Función para ordenar tres listas en orden ascendente según la tercera lista.
+    Args:
+        lista_a: list: Primera lista de datos.
+        lista_b: list: Segunda lista de datos.
+        lista_c: list: Tercera lista de datos.
+    '''
 
     for i in range(0, len(lista_a)-1, 1):
         
@@ -50,6 +72,13 @@ def ordenar_ascendente(lista_a:list, lista_b:list, lista_c:list) -> None:
                     lista_a[j] = nombre_auxiliar
 
 def ordenar_descendente(lista_a:list, lista_b:list, lista_c:list) -> None:
+    '''
+    Función para ordenar tres listas en orden descendente según la tercera lista.
+    Args:
+        lista_a: list: Primera lista de datos.
+        lista_b: list: Segunda lista de datos.
+        lista_c: list: Tercera lista de datos.
+    '''
 
     for i in range(0, len(lista_a)-1, 1):
         
@@ -79,113 +108,60 @@ def ordenar_descendente(lista_a:list, lista_b:list, lista_c:list) -> None:
                     lista_a[i] = lista_a[j]
                     lista_a[j] = nombre_auxiliar
 
-def ordenar(lista_a:list, lista_b:list, lista_c:list, primer_modo = 1, segundo_modo= 1) -> None:
-
-    for i in range(0, len(lista_a)-1, 1):
-        
-        for j in range(i + 1, len(lista_a), 1):
-            
-            if (lista_c[i] > lista_c[j] and primer_modo == 1) or (lista_c[i] < lista_c[j] and primer_modo == 2):
-                #SWAP(intercambio)
-                edad_auxiliar = lista_b[i]
-                lista_b[i] = lista_b[j]
-                lista_b[j] = edad_auxiliar
-
-                nombre_auxiliar = lista_a[i]
-                lista_a[i] = lista_a[j]
-                lista_a[j] = nombre_auxiliar
-
-                genero_auxiliar = lista_c[i]
-                lista_c[i] = lista_c[j]
-                lista_c[j] = genero_auxiliar
-#2 criterio 
-            elif lista_c[i] == lista_c[j]:
-                if (lista_a[i] > lista_a[j] and segundo_modo == 1) or (lista_a[i] < lista_a[j] and segundo_modo == 2):
-                    edad_auxiliar = lista_b[i]
-                    lista_b[i] = lista_b[j]
-                    lista_b[j] = edad_auxiliar
-
-                    nombre_auxiliar = lista_a[i]
-                    lista_a[i] = lista_a[j]
-                    lista_a[j] = nombre_auxiliar
-
 def inicializar_matriz(cantidad_filas:int, cantidad_columnas:int, valor_inicial:any) -> list:
+    '''
+    Función para inicializar una matriz con un valor inicial.
+    Args:
+        cantidad_filas: int: Cantidad de filas de la matriz.
+        cantidad_columnas: int: Cantidad de columnas de la matriz.
+        valor_inicial: str | int: Valor inicial con el que se llenará la matriz.
+    Returns:
+        list: Matriz inicializada con el valor inicial.
+    '''
     matriz = []
     for i in range(cantidad_filas):
         fila = [valor_inicial] * cantidad_columnas
         matriz += [fila]
     return matriz
 
-def SumaMatriz(matriz1, matriz2):
-    filas = len(matriz1)
-    columnas = len(matriz1[0])
-    resultado = inicializar_matriz(filas, columnas, 0)
-    for i in range(filas):
-        for j in range(columnas):
-            resultado [i][j] = matriz1[i][j] + matriz2[i][j]
-    for l in range(len(resultado)):
-        for h in range(len(resultado[i])):
-            print(resultado[l][h], end=" ")
-        print(" ")
-
-def productoMatrices_escalar(matriz1, escalar):
-    filas = len(matriz1)
-    columnas = len(matriz1[0])
-    resultado = inicializar_matriz(filas, columnas, 0)
-    for i in range(len(matriz1)):
-        for j in range(len(matriz1[i])):
-            resultado[i][j] = matriz1[i][j] * escalar
-
-    for l in range(len(resultado)):
-        for h in range(len(resultado[i])):
-            print(resultado[l][h], end=" ")
-        print(" ")
-
-def producto_matricial(matriz_A,matriz_B,filas_A,filas_B,columnas_A,columnas_B):
-    resultado = inicializar_matriz(filas_A,columnas_B,0)
-    for i in range(filas_A):
-        for j in range(columnas_B):
-            for k in range(columnas_A):
-                resultado[i][j] += matriz_A[i][k] * matriz_B[k][j] 
-
-    for l in range(len(resultado)):
-        for h in range(len(resultado[i])):
-            print(resultado[l][h], end=" ")
-        print(" ")
-    return resultado
-
-def palindromo(palabra:str)->bool:
-    Es_Palindromo=True
-    for i in range(len(palabra)):   
-        if palabra[i] != palabra[(len(palabra)-1)-i]:
-
-            Es_Palindromo=False
-            break
-    return Es_Palindromo
-
-def limpiar_espacios(palabra:str)->str:
-    lista_frase=""
-    for i in range(len(palabra)):
-        if palabra[i] != " ":
-            lista_frase+=palabra[i]
-    return lista_frase
-
-def mostrar_matriz(matriz):
+def mostrar_matriz(matriz:list) -> None:
+    """
+    Función para mostrar una matriz en la consola.
+    Args:
+        matriz: list: Matriz a mostrar.
+    """
     for i in range(len(matriz)):
         for j in range(len(matriz[i])):
             print(matriz[i][j], end = " ")
         print("")
 
-def buscar_datos(dnis:list,dni:int) -> int:
-
+def buscar_datos(lista:list,ref:int) -> int:
+    """
+    Función para buscar un elemento en una lista y devolver su índice.
+    Args:
+        lista: list: Lista en la que se busca el elemento.
+        ref: int: Elemento a buscar en la lista.
+    Returns:
+        int: Índice del elemento encontrado, o None si no se encuentra.
+    """
     indice = None
-    for index in range (len(dnis)): 
-        if dnis[index] == dni:
+    for index in range (len(lista)): 
+        if lista[index] == ref:
             indice = index
             break
     return indice
 
 def cargar_datos_secuencial(nombres: list, edades: list, generos: list, estaturas: list, dnis: list, tamano: int) -> None:
+    '''
+    Función para cargar datos de estudiantes en listas.
+    Args:
+        nombres: list: Lista de nombres de los estudiantes.
+        edades: list: Lista de edades de los estudiantes.
+        generos: list: Lista de géneros de los estudiantes.
+        estaturas: list: Lista de estaturas de los estudiantes.
+        dnis: list: Lista de DNIs de los estudiantes.
+        tamano: int: Tamaño de las listas.
+    '''
     for i in range(tamano):
         nombres[i] = input("Nombre: ")
         while nombres[i] == "x":
@@ -397,21 +373,6 @@ def crear_lista(tamano:int, valor_inicial:any) -> list:
     lista = [valor_inicial  ] * tamano
     return lista
 
-def max(lista):
-    maximo = None
-    pos = ''
-    for i in lista:
-        if maximo == None:
-            maximo = i
-        if i >= maximo:
-            maximo = i
-    print(maximo)
-    for p in range(len(lista)):
-        if lista[p] == maximo:
-            pos += str(p)
-            pos += ' '
-    return pos
-
 def remplazar_nombres(lista_nombres, nombre_nuevo, nombre_viejo):
     remplace = 0
     for i in range(len(lista_nombres)):
@@ -421,66 +382,14 @@ def remplazar_nombres(lista_nombres, nombre_nuevo, nombre_viejo):
     print(lista_nombres)    
     return remplace
 
-def inte(lista1, lista2):
-    for d in range(len(lista1)):
-        for s in range(len(lista2)):
-            if lista1[d] == lista2[s]:
-                print(lista1[d])
-
-def union(lista1, lista2):
-    # Crear una lista vacía con un tamaño suficiente para almacenar la unión
-    resultado = [0] * (len(lista1) + len(lista2))
-    indice = 0
-
-    # Copiar los elementos de la primera lista al resultado
-    for i in range(len(lista1)):
-        resultado[indice] = lista1[i]
-        indice += 1
-
-    # Agregar los elementos de la segunda lista que no están en la primera
-    for i in range(len(lista2)):
-        repetido = False
-        for j in range(len(lista1)):
-            if lista2[i] == lista1[j]:
-                repetido = True
-                break
-        if not repetido:
-            resultado[indice] = lista2[i]
-            indice += 1
-
-    # Mostrar la unión (sin los espacios vacíos)
-    for i in range(indice):
-        print(resultado[i])
-
-def diferencia(lista1, lista2):
-    # Crear una lista vacía con un tamaño suficiente para almacenar la diferencia
-    resultado = [0] * len(lista1)
-    indice = 0
-
-    # Agregar los elementos de la primera lista que no están en la segunda
-    for i in range(len(lista1)):
-        repetido = False
-        for j in range(len(lista2)):
-            if lista1[i] == lista2[j]:
-                repetido = True
-                break
-        if not repetido:
-            resultado[indice] = lista1[i]
-            indice += 1
-
-    # Mostrar la diferencia (sin los espacios vacíos)
-    for i in range(indice):
-       print(resultado[i])
-
-def es_primo(num):
-    if num < 2:
-        return False
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
-
-def indentificar_numeros(cadena:str):
+def indentificar_numeros(cadena:str)-> bool:
+    '''
+    Función para identificar si una cadena contiene solo números.
+    Args:
+        cadena: str: Cadena a verificar.
+    Returns:
+        bool: True si la cadena contiene solo números, False en caso contrario.
+    '''
     hay = None
     for i in cadena:
         if ord(i) < 47 or ord(i) > 57:
@@ -489,23 +398,14 @@ def indentificar_numeros(cadena:str):
             hay = True
     return hay
 
-def verificar_cadena (palabra:list):
-    largo = len(palabra)
-    lista = [' '] * largo  
-    indice = 0  
-    resultado = ''
-    for i in palabra:
-        if ord(i) >= 48 and ord(i) <= 57: 
-            continue
-        else:
-            lista[indice] = i
-            indice += 1
-    print(lista)
-    for i in lista:
-        resultado += i
-    print(resultado)
-
-def es_cuadrado_magico(matriz):
+def es_cuadrado_magico(matriz:list) -> bool:
+    '''
+    Función para verificar si una matriz es un cuadrado mágico.
+    Args:
+        matriz: list[list[int]]: Matriz a verificar.
+    Returns:
+        bool: True si la matriz es un cuadrado mágico, False en caso contrario.
+    '''
     es_magico = None
     n = len(matriz)
     constante_magica = n * (n**2 + 1) // 2
@@ -544,6 +444,14 @@ def generar_lista_legajos()-> list:
     return lista_legajos
 
 def validar_legajo(legajo:int, legajos:list)-> bool:
+    '''
+    Función para validar si un legajo ya existe en la lista de legajos.
+    Args:
+        legajo: int: Legajo a validar.
+        legajos: list: Lista de legajos existentes.
+    Returns:
+        bool: True si el legajo es válido (no existe en la lista), False si ya existe.
+    '''
     valido = True
     for i in range(len(legajos)):
         if legajos[i] == legajo:
@@ -552,6 +460,13 @@ def validar_legajo(legajo:int, legajos:list)-> bool:
     return valido
 
 def lower(texto: str) -> str:
+    '''
+    Función para convertir una cadena de texto a minúsculas.
+    Args:
+        texto: str: Cadena de texto a convertir.
+    Returns:
+        str: Cadena de texto convertida a minúsculas.
+    '''
     resultado = ""
     for letra in texto:
         codigo = ord(letra)
@@ -562,6 +477,13 @@ def lower(texto: str) -> str:
     return resultado
 
 def upper(texto: str) -> str:
+    '''
+    Función para convertir una cadena de texto a mayúsculas.
+    Args:
+        texto: str: Cadena de texto a convertir.
+    Returns:
+        str: Cadena de texto convertida a mayúsculas.
+    '''
     resultado = ""
     for letra in texto:
         codigo = ord(letra)
@@ -571,7 +493,11 @@ def upper(texto: str) -> str:
             resultado += letra
     return resultado
 
-def get_name():
+def get_name()-> str:
+    '''
+    Función para obtener el nombre del usuario.
+    Devuelve el nombre ingresado por el usuario.
+    '''
     while True:
         nombre = input("Nombre: ")
         es_valido = indentificar_numeros(nombre)
