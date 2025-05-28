@@ -6,7 +6,7 @@ mensaje_error = 'ERROR AL INGRESAR TU DATO'
 
 
 
-def cargar_datos_secuencial(nombres: list, generos: list, legajos: list, materias:list, notas:list, tamano: int) -> None:
+def cargar_datos_secuencial(nombres: list, generos: list, legajos: list, notas:list, tamano: int) -> None:
     '''
     Carga los datos de los estudiantes en las listas correspondientes.
     Argumentos:
@@ -25,13 +25,13 @@ def cargar_datos_secuencial(nombres: list, generos: list, legajos: list, materia
         generos[i] = get_genero()
 
         for j in range(len(notas[i])):
-            print(materias[j])
+            print(f'Materia {j+1}')
             nota = get_int('Nota ➢  ', mensaje_error, 1, 10, 100)
             notas[i][j] = nota
 
         print('Datos Ingresados CORRECTAMENTE')
         print('❅────────────────✧❅✦❅✧──────────────────❅•')
-        seguir = input("Desea cargar otro estudiante?('s'/'n') ➢  ")
+        seguir = input("Desea cargar otro estudiante?('s'/'n') ➢  ") #PUESTO PA PROBAR 
         seguir = lower(seguir)
         if seguir == 'n':
             break
@@ -55,7 +55,7 @@ def promedio_estudiante(promedio:list, nota:list, tamano:int) -> list:
     print('Listo! Promedios calculados ✔')
     return promedio
 
-def ordenar_estudiantes(nombres:list, legajo:list, promedio:list, genero:list, nota:list, como_ordenar:str, mostras:bool) -> None:
+def ordenar_estudiantes(nombres:list, legajo:list, promedio:list, genero:list, nota:list, como_ordenar:str) -> None:
     '''
     Ordena los estudiantes por promedio y por nombre.
     Argumentos:
@@ -137,7 +137,7 @@ def promedio_materia(notas:list) -> list:
             promedios_materias[j] += notas[i][j]
 
     for x in range(len(promedios_materias)):
-        promedios_materias[x] //= alumnos
+        promedios_materias[x] /= alumnos
     return promedios_materias
 
 def mayor_promedio(promeidos:list) -> int | None:
@@ -173,3 +173,34 @@ def buscador(legajo:list)-> int | None:
     if indice == None:
         print('\nNO EXISTE ESE LEGAJO')
     return indice
+
+
+def get_indice()-> int:
+    '''
+    Pide al usuario que ingrese un indice de materia.
+    Returns:
+        Devuelve el indice de la materia seleccionada.
+    '''
+    indice = get_int('Que Materia queres buscar? (1-5) ➢  ', mensaje_error, 1, 5, 100)
+    return indice
+
+def notas_en_materias(nota:list, indice:int)-> list:
+    '''
+    Cuenta la cantidad de notas ingresadas por materia.
+    Args:
+        nota: lista de notas de los estudiantes
+        indice: indice de la materia a contar
+    Returns:
+        Devuelve una lista con la cantidad veces de notas ingresadas por materia.
+    '''
+    cant_notas = crear_lista(10, 0)
+
+    for i in range(len(nota)):
+        for j in range(len(nota[0])):
+            if j == indice-1:
+                for y in range(10):
+                    if nota[i][j] == y+1:
+                        cant_notas[y] += 1
+    return cant_notas
+
+

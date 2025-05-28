@@ -537,4 +537,3 @@ def get_legajo(legajos:list)-> int:
         else:
             print('ESE LEGAJO YA EXISTE\n')
     return legajo
-

@@ -16,14 +16,12 @@ notas_de_cada_estudiante = [
 
 nombres_estudiantes = [
     "Juan", "Ana", "Pedro", "Lucia", "Carlos", "Sofia", "Diego", "Pablo", "Mateo", "Camila",
-    "Kiara", "Martin", "Tomas", "Julian", "Messi", "Mia", "Nahuel", "Teo", "Lucas", "Paula",
-    "Bruno", "Emilia", "Nicole", "Renata", "Demian", "Isabel", "Franco", "Victor", "Luis", "Lara"
+     "Kiara", "Martin", "Tomas", "Julian", "Messi", "Mia", "Nahuel", "Teo", "Lucas", "Paula",
+     "Bruno", "Emilia", "Nicole", "Renata", "Demian", "Isabel", "Franco", "Victor", "Luis", "Lara"
 ]
 
 generos_estudiantes = crear_lista(estudiantes, 'X')
 
-cant_materias = len(notas_de_cada_estudiante[0])
-
 legajos_estudiantes = generar_lista_legajos()
 
-materias = ['Matematica', 'Algebra', 'Historia', 'Ingles', 'Fisica']
+#materias = ['Matematica', 'Algebra', 'Historia', 'Ingles', 'Fisica']
