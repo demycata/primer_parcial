@@ -7,7 +7,7 @@ import datos
 
 promedios = False
 
-ingreso = True
+ingreso = False
 
 while True:
 
